@@ -1,0 +1,10 @@
+.ticket{
+    background-color: black;
+    border: black;
+    border: 2px solid red;
+    border-radius: 20px;
+    color: white;
+    padding: 20px;
+    
+   
+}
