@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './Comment.css'
 
 function Comment() {
     let [formData,setFormData]=useState({
@@ -38,9 +39,13 @@ function Comment() {
     <br /><br />
     <button>Submit</button>
    </form>
-   
-   
+   <div className='data'>
+      <h1>{formData.userName}</h1>
+      <p>{formData.remark}</p>
+      <p>{formData.rating}</p>
+   </div>
    </>
+
   )
 }
 
