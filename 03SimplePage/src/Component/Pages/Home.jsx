@@ -1,38 +1,35 @@
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+
 function Home() {
-    const url = "www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata";
-  const [data, setData] = useState([]);
+  const [userData,setUserData]=useState([]);
 
-  const fetchInfo = () => {
-    return axios.get(url).then((res) => setData([res.data]));
-  };
+  useEffect(()=>{
+        axios.get('https://jsonplaceholder.typicode.com/posts')
+        .then((response)=>{
 
-  useEffect(() => {
-    fetchInfo();
-  }, []);
-
+         
+           setUserData(response.data);
+        });
+  },[])
   return (
-    <div className="App">
-     
-      <center>
-        {data.map((dataObj, index) => {
-            console.log(dataObj)
-            
-          return (
+      <>
+    
+    {userData.map((data)=>{
+      return(
+      <div style={{border:"2px solid red"}}>
 
-            <div key={index}>
-              
-              
-              
-            </div>
-          );
-        })}
-      </center>
-    </div>
-  );
-
+        <h1>{data.body}</h1>
+      </div>
+      )
+    })
+    
+    }
+      </>
+   
+  )
 }
 
 export default Home
